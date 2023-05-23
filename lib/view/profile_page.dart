@@ -1,60 +1,130 @@
 import 'package:flutter/material.dart';
 
-import '../theme.dart';
-
 class ProfilePage extends StatelessWidget {
   const ProfilePage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      children: [
-        Container(
-          width: double.infinity,
-          height: double.infinity,
-          decoration: const BoxDecoration(
-            image: DecorationImage(
-                image: AssetImage(
-                  'assets/background.png',
-                ),
-                fit: BoxFit.cover),
+    return MaterialApp(
+      title: 'Profile',
+      home: Scaffold(
+        appBar: AppBar(
+          backgroundColor: Color.fromARGB(255, 19, 19, 19),
+          title: const Center(
+            child: Text('Tugas Profile Unity'),
           ),
         ),
-        Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              const CircleAvatar(
-                radius: 55,
-                backgroundImage: AssetImage('assets/lens.jpeg'),
+        body: ListView(
+          children: <Widget>[
+            Container(
+              height: 250,
+              decoration: const BoxDecoration(
+                gradient: LinearGradient(
+                  colors: [
+                    Color.fromARGB(255, 45, 42, 46),
+                    Color.fromARGB(255, 56, 34, 63)
+                  ],
+                  begin: Alignment.centerLeft,
+                  end: Alignment.centerRight,
+                  stops: [0.5, 0.9],
+                ),
               ),
-              const SizedBox(
-                height: 5,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: const <Widget>[
+                      CircleAvatar(
+                        backgroundColor: Color.fromARGB(179, 65, 44, 56),
+                        minRadius: 60.0,
+                        child: CircleAvatar(
+                          radius: 50.0,
+                          backgroundImage: NetworkImage(
+                              'https://avatars.githubusercontent.com/u/131934768?v=4'),
+                        ),
+                      ),
+                    ],
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  const Text(
+                    'Marchelino Ramadito',
+                    style: TextStyle(
+                      fontSize: 35,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white,
+                    ),
+                  ),
+                  const Text(
+                    '18021106106',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 25,
+                    ),
+                  ),
+                ],
               ),
-              Text(
-                'Lens',
-                style: titleTextStyle.copyWith(
-                    letterSpacing: 2,
-                    color: Colors.deepPurple,
-                    fontSize: 20,
-                    fontWeight: FontWeight.w800),
-              ),
-              const SizedBox(
-                height: 10,
-              ),
-              Text(
-                'Senior Flutter Developer',
-                style: titleTextStyle.copyWith(
-                    color: Colors.black, fontWeight: FontWeight.bold),
-              ),
-              const SizedBox(
-                height: 5,
-              ),
-              const Text('nyenyenyenyenye sipaling flutter')
-            ],
-          ),
-        )
-      ],
+            ),
+            Column(
+              children: const <Widget>[
+                ListTile(
+                  title: Text(
+                    'Email',
+                    style: TextStyle(
+                      color: Color.fromARGB(255, 146, 58, 102),
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  subtitle: Text(
+                    'marchelinoramadito39@gmail.com',
+                    style: TextStyle(
+                      fontSize: 18,
+                    ),
+                  ),
+                ),
+                Divider(),
+                ListTile(
+                  title: Text(
+                    'GitHub',
+                    style: TextStyle(
+                      color: Color.fromARGB(255, 146, 58, 102),
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  subtitle: Text(
+                    'https://github.com/Shiki39',
+                    style: TextStyle(
+                      fontSize: 18,
+                    ),
+                  ),
+                ),
+                Divider(),
+                ListTile(
+                  title: Text(
+                    'Linkedin',
+                    style: TextStyle(
+                      color: Color.fromARGB(255, 146, 58, 102),
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  subtitle: Text(
+                    'https://www.linkedin.com/in/marchelino-ramadito-382a121a2/',
+                    style: TextStyle(
+                      fontSize: 18,
+                    ),
+                  ),
+                ),
+              ],
+            )
+          ],
+        ),
+      ),
     );
   }
 }
